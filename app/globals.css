@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #10233E;
+  --gold: #D4A64A;
+  --ivory: #F7F4EE;
+  --cream: #FFF8EF;
+  --burgundy: #8E1F1F;
+  --sun: #F4C542;
+  --nature: #7BAE7F;
+  --sky: #A8D5E5;
+  --peach: #F7C8A3;
+}
+
+html { scroll-behavior: smooth; }
+
+html, body {
+  background: var(--cream);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: #F4C542; color: #10233E; }
+
+/* ---------- Layered utilities ---------- */
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-6 lg:px-10; }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-burgundy backdrop-blur ring-1 ring-burgundy/10 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-burgundy px-6 py-3.5 text-sm font-semibold text-ivory-cream shadow-card transition-all hover:-translate-y-0.5 hover:bg-[#a52828] hover:shadow-glow active:translate-y-0;
+  }
+  .btn-gold {
+    @apply inline-flex items-center gap-2 rounded-full bg-gradient-gold px-6 py-3.5 text-sm font-semibold text-navy shadow-card transition-all hover:-translate-y-0.5 hover:shadow-glow;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full bg-white/70 px-6 py-3.5 text-sm font-semibold text-navy ring-1 ring-navy/10 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-navy/80 px-6 py-3 text-sm font-semibold text-navy transition-all hover:bg-navy hover:text-ivory-cream;
+  }
+
+  .glass {
+    @apply rounded-3xl bg-white/55 ring-1 ring-white/60 backdrop-blur-xl shadow-card;
+  }
+  .glass-dark {
+    @apply rounded-3xl bg-navy/70 text-ivory-cream ring-1 ring-white/10 backdrop-blur-xl shadow-card;
+  }
+
+  .display {
+    @apply font-display font-medium tracking-tight;
+    letter-spacing: -0.01em;
+  }
+
+  .underline-wave {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'><path d='M0 6 Q 12.5 0 25 6 T 50 6 T 75 6 T 100 6' fill='none' stroke='%23D4A64A' stroke-width='3' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 0.45em;
+    padding-bottom: 0.15em;
+  }
+
+  .section-title {
+    @apply display text-4xl text-navy md:text-5xl lg:text-6xl;
+  }
+}
+
+/* ---------- Decorative grid background ---------- */
+.bg-grain {
+  background-image: var(--tw-bg-noise, none);
+  background-blend-mode: multiply;
+}
+
+.cloud-divider {
+  display: block;
+  width: 100%;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* shimmering text */
+.shine-text {
+  background: linear-gradient(90deg, #10233E 20%, #D4A64A 50%, #10233E 80%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+/* hide scrollbar on horizontal scroll strips */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* page-load reveal helper used by GSAP */
+.reveal-init { opacity: 0; transform: translateY(24px); }
