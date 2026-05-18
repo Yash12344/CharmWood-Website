@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { PROGRAMS } from '@/lib/data';
 import { ArrowRight } from 'lucide-react';
+import { StickerText } from './StickerText';
+import { ScribbleArrow, Star, Heart } from './Doodles';
 
 export function Programs() {
   return (
@@ -13,17 +15,28 @@ export function Programs() {
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-end">
           <div>
-            <span className="eyebrow">Our Programs</span>
-            <h2 className="section-title mt-5">
+            <span className="ribbon-eyebrow">Our Programs</span>
+            <h2 className="section-title mt-7">
               From first steps to{' '}
-              <span className="italic text-burgundy">confident</span> kids.
+              <StickerText
+                words={[
+                  { text: 'confident', color: '#2D6CB0', rotate: -3 },
+                  { text: 'kids!', color: '#E97A2A', rotate: 3 },
+                ]}
+              />
             </h2>
+            <p className="mt-3 handwritten text-2xl text-pop-purple">
+              Playgroup ✦ Nursery ✦ KG ✦ Primary
+            </p>
           </div>
-          <p className="max-w-xl text-navy/60 lg:justify-self-end">
+          <p className="max-w-xl text-navy/65 lg:justify-self-end">
             We welcome children from Playgroup through Class 6 — the years
             when minds and habits are most beautifully shaped.
           </p>
         </div>
+        <Star className="pointer-events-none absolute right-10 top-16 h-9 w-9 text-pop-blue animate-twinkle" />
+        <Heart className="pointer-events-none absolute left-10 bottom-20 h-7 w-7 text-pop-red animate-pop" />
+        <ScribbleArrow className="pointer-events-none absolute right-1/4 top-32 hidden h-20 w-20 text-burgundy/40 md:block" />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PROGRAMS.map((p, i) => (

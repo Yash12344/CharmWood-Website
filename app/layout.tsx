@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, Fraunces } from 'next/font/google';
+import { Poppins, Fredoka, Caveat } from 'next/font/google';
 import './globals.css';
 
 const poppins = Poppins({
@@ -9,10 +9,17 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-const fraunces = Fraunces({
+const fredoka = Fredoka({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-fraunces',
+  variable: '--font-fredoka',
+  display: 'swap',
+});
+
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-caveat',
   display: 'swap',
 });
 
@@ -46,7 +53,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${fraunces.variable}`}>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${fredoka.variable} ${caveat.variable}`}
+    >
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

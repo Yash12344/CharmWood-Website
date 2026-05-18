@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { APPROACH } from '@/lib/data';
-import { Sparkle as SparkleIcon, Flower, Leaf } from './Doodles';
+import { Sparkle as SparkleIcon, Flower, Leaf, Star } from './Doodles';
+import { StickerText } from './StickerText';
 
 export function LearningApproach() {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,19 +52,27 @@ export function LearningApproach() {
       </div>
 
       <div className="container-x relative">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold-soft ring-1 ring-white/15 backdrop-blur">
-            Our Learning Approach
-          </span>
-          <h2 className="display mt-5 text-4xl text-ivory-cream md:text-5xl lg:text-6xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="ribbon-eyebrow">Our Learning Approach</span>
+          <h2 className="display mt-7 text-4xl text-ivory-cream md:text-5xl lg:text-[3.4rem]">
             Five ideas that{' '}
-            <span className="italic text-gold-soft">shape every day</span>.
+            <StickerText
+              words={[
+                { text: 'shape', color: '#F4C542', rotate: -3 },
+                { text: 'every', color: '#A8D5E5', rotate: 2 },
+                { text: 'day!', color: '#E0427A', rotate: -2 },
+              ]}
+            />
           </h2>
-          <p className="mt-5 text-ivory-cream/70">
-            Our methodology in one paragraph: meet the child where they are,
-            walk a little ahead of them, and never rush.
+          <p className="mt-3 handwritten text-2xl text-gold-soft">
+            our little philosophy ✦
+          </p>
+          <p className="mt-3 text-ivory-cream/70">
+            Meet the child where they are, walk a little ahead of them,
+            and never rush.
           </p>
         </div>
+        <Star className="pointer-events-none absolute left-20 top-32 h-7 w-7 text-pop-pink animate-twinkle" />
 
         {/* curved timeline */}
         <div className="relative mt-20">

@@ -12,6 +12,8 @@ import {
   Smile,
 } from 'lucide-react';
 import { FEATURES } from '@/lib/data';
+import { StickerText } from './StickerText';
+import { Heart, Star, Sparkle } from './Doodles';
 
 const ICONS = [
   MonitorPlay,
@@ -26,16 +28,22 @@ const ICONS = [
 
 export function WhyChooseUs() {
   return (
-    <section className="relative bg-gradient-to-b from-ivory-cream to-white py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-b from-ivory-cream to-white py-24 lg:py-32">
+      <Heart className="pointer-events-none absolute left-10 top-24 h-7 w-7 text-pop-red animate-pop" />
+      <Star className="pointer-events-none absolute right-16 top-32 h-8 w-8 text-pop-blue animate-twinkle" />
+      <Sparkle className="pointer-events-none absolute right-1/3 bottom-12 h-6 w-6 text-pop-orange animate-float" />
+
       <div className="container-x">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Why Charmwood</span>
-          <h2 className="section-title mt-5">
-            A school built around how children{' '}
-            <span className="italic text-burgundy">actually learn</span>.
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="ribbon-eyebrow">Why Charmwood</span>
+          <h2 className="section-title mt-7">
+            A school built around how kids{' '}
+            <StickerText
+              words={[{ text: 'actually', color: '#4DA64F', rotate: -3 }, { text: 'learn!', color: '#E0427A', rotate: 3 }]}
+            />
           </h2>
-          <p className="mt-5 text-navy/60">
-            Eight everyday promises we make to every family that joins us.
+          <p className="mt-4 handwritten text-2xl text-pop-purple">
+            eight little promises to every family ♥
           </p>
         </div>
 

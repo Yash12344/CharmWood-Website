@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Calendar, Send, CheckCircle2 } from 'lucide-react';
 import { ADMISSION_STEPS, SCHOOL } from '@/lib/data';
+import { StickerText } from './StickerText';
+import { Heart, Star, ScribbleArrow } from './Doodles';
 
 export function Admissions() {
   const [done, setDone] = useState(false);
@@ -14,14 +16,26 @@ export function Admissions() {
       id="admissions"
       className="relative overflow-hidden bg-gradient-to-b from-ivory-cream to-white py-24 lg:py-32"
     >
+      <Heart className="pointer-events-none absolute right-12 top-20 h-8 w-8 text-pop-red animate-pop" />
+      <Star className="pointer-events-none absolute left-12 top-40 h-7 w-7 text-pop-blue animate-twinkle" />
+      <ScribbleArrow className="pointer-events-none absolute left-1/3 bottom-12 hidden h-20 w-20 text-burgundy/40 md:block" />
+
       <div className="container-x grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         {/* left */}
         <div>
-          <span className="eyebrow">Admissions 2026 – 27</span>
-          <h2 className="section-title mt-5">
+          <span className="ribbon-eyebrow">Admissions 2026 – 27</span>
+          <h2 className="section-title mt-7">
             Come, meet{' '}
-            <span className="italic text-burgundy">our school</span>.
+            <StickerText
+              words={[
+                { text: 'our', color: '#4DA64F', rotate: -2 },
+                { text: 'school!', color: '#E97A2A', rotate: 3 },
+              ]}
+            />
           </h2>
+          <p className="mt-3 handwritten text-2xl text-pop-purple">
+            warm, unhurried & full of smiles ♥
+          </p>
           <p className="mt-5 max-w-lg text-navy/70">
             Admissions are warm and unhurried at Charmwood. Four small steps,
             and you’ll know whether we are the right home for your child.

@@ -3,7 +3,11 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { CAMPUS_PHOTOS } from '@/lib/data';
-import { CloudDivider } from './Doodles';
+import { CloudDivider, Heart, Star, Flower } from './Doodles';
+import { StickerText } from './StickerText';
+
+// alternating tilt for the scrapbook feel
+const TILTS = [-4, 3, -2, 5, -5, 2, -3, 4, -2, 3];
 
 export function CampusLife() {
   return (
@@ -12,32 +16,44 @@ export function CampusLife() {
         <CloudDivider />
       </div>
 
-      <div className="py-24 lg:py-32">
-        <div className="container-x">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow">Campus Life</span>
-            <h2 className="section-title mt-5">
+      <div className="relative overflow-hidden py-24 lg:py-32">
+        <Heart className="pointer-events-none absolute left-8 top-24 h-8 w-8 text-pop-red animate-pop" />
+        <Star className="pointer-events-none absolute right-12 top-32 h-9 w-9 text-pop-blue animate-twinkle" />
+        <Flower className="pointer-events-none absolute right-1/3 bottom-12 h-12 w-12 text-peach animate-wiggle" />
+        <Heart className="pointer-events-none absolute left-1/3 bottom-32 h-6 w-6 text-pop-pink animate-pop" />
+
+        <div className="container-x relative">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="ribbon-eyebrow">Campus Life</span>
+            <h2 className="section-title mt-7">
               A school day, in{' '}
-              <span className="italic text-burgundy">colour</span>.
+              <StickerText
+                words={[{ text: 'colour!', color: '#E0427A', rotate: -3 }]}
+              />
             </h2>
-            <p className="mt-5 text-navy/60">
+            <p className="mt-3 handwritten text-2xl text-pop-purple">
+              every moment, a little memory ♥
+            </p>
+            <p className="mt-3 text-navy/60">
               Moments between the bells — yoga, sports, music, festivals,
               friendships and the unhurried joy of being five.
             </p>
           </div>
 
-          <div className="mt-16 columns-1 gap-5 sm:columns-2 lg:columns-3 [column-fill:_balance]">
+          {/* Scrapbook polaroid wall */}
+          <div className="mt-16 columns-1 gap-7 sm:columns-2 lg:columns-3 [column-fill:_balance]">
             {CAMPUS_PHOTOS.map((p, i) => (
               <motion.figure
                 key={p.src}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, rotate: 0 }}
+                whileInView={{ opacity: 1, y: 0, rotate: TILTS[i % TILTS.length] }}
+                whileHover={{ rotate: 0, y: -8, scale: 1.02 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.55, delay: (i % 3) * 0.06 }}
-                className="group relative mb-5 break-inside-avoid overflow-hidden rounded-3xl shadow-pillow ring-1 ring-navy/5"
+                className="polaroid relative mb-7 break-inside-avoid cursor-pointer"
               >
                 <div
-                  className={`relative ${
+                  className={`relative overflow-hidden rounded ${
                     p.span === 'tall'
                       ? 'aspect-[3/4]'
                       : p.span === 'wide'
@@ -52,13 +68,8 @@ export function CampusLife() {
                     sizes="(min-width:1024px) 380px, (min-width:640px) 50vw, 90vw"
                     className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/65 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <figcaption className="absolute inset-x-5 bottom-5 translate-y-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    <span className="inline-block rounded-full bg-ivory-cream/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-navy">
-                      {p.label}
-                    </span>
-                  </figcaption>
                 </div>
+                <figcaption className="cap">{p.label}</figcaption>
               </motion.figure>
             ))}
           </div>

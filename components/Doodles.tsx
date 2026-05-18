@@ -6,15 +6,15 @@ export function FloatingDoodles() {
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {/* sun */}
       <motion.div
-        className="absolute -top-10 right-[6%] hidden md:block"
+        className="absolute top-6 right-[6%] hidden md:block"
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
       >
-        <Sun className="h-28 w-28 text-sun/80" />
+        <SmilingSun className="h-24 w-24 text-sun" />
       </motion.div>
       {/* cloud */}
       <motion.div
-        className="absolute top-24 left-[4%] hidden md:block"
+        className="absolute top-32 left-[4%] hidden md:block"
         animate={{ x: [0, 20, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
       >
@@ -26,22 +26,34 @@ export function FloatingDoodles() {
         animate={{ y: [0, -14, 0], rotate: [-8, 6, -8] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <Leaf className="h-16 w-16 text-nature/80" />
+        <Leaf className="h-14 w-14 text-nature/80" />
       </motion.div>
       {/* star */}
       <motion.div
-        className="absolute top-[40%] right-[10%]"
+        className="absolute top-[44%] right-[10%]"
         animate={{ y: [0, -10, 0], rotate: [0, 20, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <Sparkle className="h-12 w-12 text-gold/80" />
+        <Star className="h-10 w-10 text-pop-blue animate-twinkle" />
       </motion.div>
-      {/* tiny dots */}
-      <div className="absolute bottom-10 right-[20%] flex gap-2">
-        <span className="h-2 w-2 rounded-full bg-burgundy/60" />
-        <span className="h-2 w-2 rounded-full bg-gold/70" />
-        <span className="h-2 w-2 rounded-full bg-nature/70" />
-      </div>
+      {/* paper plane */}
+      <motion.div
+        className="absolute top-44 right-[28%] hidden lg:block"
+        animate={{ x: [0, 30, 0], y: [0, -10, 0] }}
+        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <PaperPlane className="h-10 w-10 text-pop-blue" />
+      </motion.div>
+      {/* heart */}
+      <motion.div
+        className="absolute bottom-32 right-[14%]"
+        animate={{ scale: [1, 1.15, 1] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <Heart className="h-9 w-9 text-pop-red" />
+      </motion.div>
+      {/* dashed swirl arrow */}
+      <ScribbleArrow className="absolute top-32 right-[20%] hidden h-24 w-24 text-burgundy/40 md:block" />
     </div>
   );
 }
@@ -70,8 +82,8 @@ export function Blob({ className = '' }: { className?: string }) {
   );
 }
 
-/* ---------- icons ---------- */
-export function Sun({ className = '' }: { className?: string }) {
+/* ---------- icons (doodle-style) ---------- */
+export function SmilingSun({ className = '' }: { className?: string }) {
   return (
     <svg viewBox="0 0 80 80" className={className}>
       <circle cx="40" cy="40" r="16" fill="currentColor" />
@@ -94,8 +106,22 @@ export function Sun({ className = '' }: { className?: string }) {
           />
         );
       })}
+      {/* smiley */}
+      <circle cx="35" cy="38" r="1.6" fill="#10233E" />
+      <circle cx="45" cy="38" r="1.6" fill="#10233E" />
+      <path
+        d="M34 44 Q 40 49 46 44"
+        stroke="#10233E"
+        strokeWidth="2"
+        strokeLinecap="round"
+        fill="none"
+      />
     </svg>
   );
+}
+
+export function Sun({ className = '' }: { className?: string }) {
+  return <SmilingSun className={className} />;
 }
 
 export function Cloud({ className = '' }: { className?: string }) {
@@ -166,6 +192,58 @@ export function Flower({ className = '' }: { className?: string }) {
         <circle cx="32" cy="48" r="9" />
       </g>
       <circle cx="32" cy="32" r="6" fill="#F4C542" />
+    </svg>
+  );
+}
+
+export function Heart({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className}>
+      <path
+        d="M32 56 C 6 38 6 18 20 14 C 28 12 32 20 32 22 C 32 20 36 12 44 14 C 58 18 58 38 32 56 Z"
+        fill="currentColor"
+        stroke="#fff"
+        strokeWidth="2.5"
+      />
+    </svg>
+  );
+}
+
+export function Star({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className}>
+      <path
+        d="M32 4 L40 24 L62 26 L46 40 L52 60 L32 49 L12 60 L18 40 L2 26 L24 24 Z"
+        fill="currentColor"
+        stroke="#fff"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ScribbleArrow({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 80 80" className={className} fill="none">
+      <path
+        d="M8 70 C 10 30, 30 14, 50 26 C 60 32, 56 50, 40 48 C 28 46, 28 30, 40 24"
+        className="scribble-arrow"
+      />
+      <path d="M44 18 L40 24 L48 28" className="scribble-arrow" />
+    </svg>
+  );
+}
+
+export function Squiggle({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 24" className={className} fill="none">
+      <path
+        d="M2 14 Q 15 2, 28 14 T 56 14 T 84 14 T 112 14"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

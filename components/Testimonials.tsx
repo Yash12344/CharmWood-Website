@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
+import { StickerText } from './StickerText';
+import { Heart, Star } from './Doodles';
 
 export function Testimonials() {
   const [i, setI] = useState(0);
@@ -19,13 +21,21 @@ export function Testimonials() {
         <div className="absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-sky/40 blur-3xl" />
       </div>
 
+      <Heart className="pointer-events-none absolute left-10 top-20 h-8 w-8 text-pop-red animate-pop" />
+      <Star className="pointer-events-none absolute right-12 top-32 h-9 w-9 text-pop-blue animate-twinkle" />
+
       <div className="container-x relative">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Parents Speak</span>
-          <h2 className="section-title mt-5">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="ribbon-eyebrow">Parents Speak</span>
+          <h2 className="section-title mt-7">
             What families say about{' '}
-            <span className="italic text-burgundy">us</span>.
+            <StickerText
+              words={[{ text: 'us!', color: '#D43F4A', rotate: 4 }]}
+            />
           </h2>
+          <p className="mt-3 handwritten text-2xl text-pop-purple">
+            real words, real love ♥
+          </p>
         </div>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">

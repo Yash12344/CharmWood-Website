@@ -3,14 +3,19 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, PlayCircle, Sparkles } from 'lucide-react';
+import { Calendar, PlayCircle } from 'lucide-react';
 import { HERO_SLIDES } from '@/lib/data';
 import {
   FloatingDoodles,
   Flower,
   Sparkle as SparkleIcon,
   PaperPlane,
+  Heart,
+  Star,
+  ScribbleArrow,
+  Squiggle,
 } from './Doodles';
+import { StickerText } from './StickerText';
 
 export function Hero() {
   const [idx, setIdx] = useState(0);
@@ -35,49 +40,69 @@ export function Hero() {
     >
       <FloatingDoodles />
 
-      {/* big blob */}
+      {/* big blobs */}
       <div className="absolute -top-32 -right-32 -z-10 h-[520px] w-[520px] rounded-full bg-gradient-warm blur-3xl opacity-70" />
       <div className="absolute -bottom-32 -left-32 -z-10 h-[520px] w-[520px] rounded-full bg-gradient-sky blur-3xl opacity-70" />
 
       <div className="container-x grid gap-12 pb-24 pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16 lg:pt-16">
         {/* Text */}
         <div className="relative">
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: 12, rotate: -4 }}
+            animate={{ opacity: 1, y: 0, rotate: -2 }}
             transition={{ delay: 0.1 }}
-            className="eyebrow"
           >
-            <Sparkles className="h-3.5 w-3.5" /> Admissions Open · 2026 – 27
-          </motion.span>
+            <span className="ribbon-eyebrow">
+              ✨ Admissions Open · 2026 – 27 ✨
+            </span>
+          </motion.div>
 
-          <h1 className="display mt-6 text-[2.6rem] leading-[1.05] text-navy sm:text-6xl lg:text-7xl">
-            <motion.span
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="block"
-            >
-              Where little
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="block"
-            >
-              <span className="underline-wave italic text-burgundy">
-                dreams
-              </span>{' '}
-              begin.
-            </motion.span>
+          {/* Sticker headline */}
+          <h1 className="mt-8 text-[3.2rem] leading-[1.02] sm:text-6xl lg:text-[5.4rem]">
+            <StickerText
+              words={[
+                { text: 'Where', color: '#10233E', rotate: -2 },
+                { text: 'Little', color: '#D43F4A', rotate: 2 },
+              ]}
+            />
+            <br />
+            <StickerText
+              words={[
+                { text: 'Dreams', color: '#2D6CB0', rotate: -3 },
+                { text: 'Begin!', color: '#E0427A', rotate: 4 },
+              ]}
+              stagger={0.12}
+            />
           </h1>
+
+          {/* handwritten sub-tagline + banner tag */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-4 inline-block"
+          >
+            <span className="handwritten text-2xl text-pop-purple md:text-3xl">
+              Joyful learning, every single day.
+            </span>
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-5"
+          >
+            <span className="banner-tag">
+              Play · Discover · Imagine · Grow
+            </span>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-navy/70"
+            transition={{ duration: 0.7, delay: 0.7 }}
+            className="mt-7 max-w-xl text-lg leading-relaxed text-navy/75"
           >
             A warm, joyful, activity-based school in the heart of Dehradun —
             nurturing minds and shaping futures with care since 1998.
@@ -86,7 +111,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.85 }}
             className="mt-8 flex flex-wrap items-center gap-4"
           >
             <a href="#admissions" className="btn-primary">
@@ -97,11 +122,11 @@ export function Hero() {
             </a>
           </motion.div>
 
-          {/* tiny social proof */}
+          {/* social proof */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
+            transition={{ delay: 1, duration: 0.8 }}
             className="mt-10 flex items-center gap-4"
           >
             <div className="flex -space-x-3">
@@ -121,19 +146,60 @@ export function Hero() {
             </div>
             <div className="text-sm">
               <p className="font-semibold text-navy">450+ happy families</p>
-              <p className="text-navy/60">trust Charmwood with their children.</p>
+              <p className="handwritten text-base text-pop-purple">trust Charmwood with their little ones ♥</p>
             </div>
           </motion.div>
 
-          {/* floating doodle bits behind text */}
-          <Flower className="absolute -left-6 bottom-10 h-12 w-12 text-peach/90 animate-floatSlow" />
-          <SparkleIcon className="absolute -right-2 top-2 h-10 w-10 text-gold/70 animate-float" />
+          {/* floating doodles around text */}
+          <Flower className="absolute -left-8 bottom-10 h-12 w-12 text-peach animate-floatSlow" />
+          <SparkleIcon className="absolute -right-2 top-2 h-10 w-10 text-gold/80 animate-float" />
+          <Heart className="absolute left-44 -top-2 h-7 w-7 text-pop-red animate-pop hidden md:block" />
+          <Star className="absolute right-12 top-32 h-8 w-8 text-pop-blue animate-twinkle hidden md:block" />
+          <Squiggle className="absolute -bottom-2 left-0 h-5 w-32 text-pop-orange" />
         </div>
 
-        {/* Image slider */}
+        {/* Image side — polaroid stack */}
         <div className="relative">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-[460px]">
-            {/* curved frame */}
+            {/* back polaroid (decorative) */}
+            <div
+              className="absolute left-2 top-8 hidden h-44 w-36 rotate-[-12deg] sm:block"
+              aria-hidden
+            >
+              <div className="polaroid h-full w-full">
+                <div className="relative h-[calc(100%-44px)] w-full overflow-hidden rounded">
+                  <Image
+                    src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=400&q=80"
+                    alt=""
+                    fill
+                    sizes="160px"
+                    className="object-cover"
+                  />
+                </div>
+                <span className="cap">art day 🎨</span>
+              </div>
+            </div>
+
+            {/* back-right polaroid */}
+            <div
+              className="absolute -right-2 bottom-4 hidden h-40 w-32 rotate-[10deg] sm:block"
+              aria-hidden
+            >
+              <div className="polaroid h-full w-full">
+                <div className="relative h-[calc(100%-44px)] w-full overflow-hidden rounded">
+                  <Image
+                    src="https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=400&q=80"
+                    alt=""
+                    fill
+                    sizes="140px"
+                    className="object-cover"
+                  />
+                </div>
+                <span className="cap">play time</span>
+              </div>
+            </div>
+
+            {/* main blobby photo */}
             <div className="absolute inset-0 -z-10 translate-x-4 translate-y-6 rounded-blob bg-gradient-gold animate-blob" />
             <div className="absolute inset-0 -z-10 -translate-x-6 -translate-y-2 rounded-[42%_58%_44%_56%/52%_42%_58%_48%] bg-gradient-nature opacity-80 animate-blob" />
 
@@ -159,7 +225,6 @@ export function Hero() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* slide caption */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`cap-${idx}`}
@@ -172,7 +237,7 @@ export function Hero() {
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-soft">
                     Glimpse of school life
                   </p>
-                  <p className="mt-1 font-display text-xl leading-snug">
+                  <p className="mt-1 handwritten text-2xl leading-snug text-ivory-cream">
                     {slide.sub}
                   </p>
                 </motion.div>
@@ -225,7 +290,8 @@ export function Hero() {
               </div>
             </motion.div>
 
-            <PaperPlane className="absolute -top-6 right-10 h-8 w-8 text-burgundy/80 animate-float" />
+            <PaperPlane className="absolute -top-6 right-10 h-8 w-8 text-pop-blue animate-float" />
+            <ScribbleArrow className="absolute -left-12 top-1/2 hidden h-20 w-20 -translate-y-1/2 text-burgundy/50 lg:block" />
           </div>
         </div>
       </div>

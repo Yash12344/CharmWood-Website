@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { Heart, ShieldCheck, Sprout, Users } from 'lucide-react';
 import { STATS } from '@/lib/data';
 import { Counter } from './Counter';
-import { Leaf, Flower } from './Doodles';
+import { Leaf, Flower, Heart as HeartDoodle, Star } from './Doodles';
+import { StickerText } from './StickerText';
 
 const PILLARS = [
   {
@@ -42,7 +43,9 @@ export function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-ivory-cream py-24 lg:py-32">
       <Leaf className="pointer-events-none absolute -left-6 top-20 h-20 w-20 text-nature/30 animate-floatSlow" />
-      <Flower className="pointer-events-none absolute right-6 top-10 h-14 w-14 text-peach/70 animate-wiggle" />
+      <Flower className="pointer-events-none absolute right-6 top-10 h-14 w-14 text-peach animate-wiggle" />
+      <HeartDoodle className="pointer-events-none absolute right-24 top-36 h-8 w-8 text-pop-red animate-pop" />
+      <Star className="pointer-events-none absolute left-24 bottom-20 h-9 w-9 text-pop-blue animate-twinkle" />
 
       <div className="container-x grid gap-16 lg:grid-cols-[1fr_1.05fr] lg:items-center">
         {/* Left: image collage */}
@@ -86,11 +89,17 @@ export function About() {
 
         {/* Right: copy */}
         <div>
-          <span className="eyebrow">About Charmwood</span>
-          <h2 className="section-title mt-5">
+          <span className="ribbon-eyebrow">About Charmwood</span>
+          <h2 className="section-title mt-7 leading-[1.05]">
             A school that begins with the{' '}
-            <span className="underline-wave italic text-burgundy">child</span>.
+            <StickerText
+              words={[{ text: 'child.', color: '#D43F4A', rotate: -3 }]}
+              className="ml-1"
+            />
           </h2>
+          <p className="mt-3 handwritten text-2xl text-pop-purple">
+            small steps, big hearts ♥
+          </p>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy/70">
             For over two decades, Charmwood has been a steady, sunlit presence
             in Dehradun — a place where small hands learn to hold pencils,

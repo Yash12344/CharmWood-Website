@@ -38,10 +38,10 @@ export function Navbar() {
             <span className="absolute font-display text-lg font-semibold">C</span>
           </div>
           <div className="leading-tight">
-            <p className="font-display text-lg font-semibold text-navy">
+            <p className="font-display text-xl font-semibold text-navy">
               Charmwood
             </p>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-burgundy">
+            <p className="handwritten text-sm leading-none text-pop-purple">
               International School
             </p>
           </div>
