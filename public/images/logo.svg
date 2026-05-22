@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 412" role="img" aria-label="Charmwood International School crest">
+  <defs>
+    <radialGradient id="cwCream" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFDF1"/>
+      <stop offset="70%" stop-color="#F6E7B4"/>
+      <stop offset="100%" stop-color="#EAD58E"/>
+    </radialGradient>
+    <linearGradient id="cwFlame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#8E1F1F"/>
+      <stop offset="55%" stop-color="#C13A2A"/>
+      <stop offset="100%" stop-color="#F1B59C"/>
+    </linearGradient>
+    <linearGradient id="cwBowl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C9352B"/>
+      <stop offset="100%" stop-color="#8C1A18"/>
+    </linearGradient>
+    <path id="cwTop" d="M 36 206 A 170 170 0 0 1 364 206"/>
+    <path id="cwBottom" d="M 58 206 A 148 148 0 0 0 342 206"/>
+  </defs>
+
+  <!-- outer ring -->
+  <circle cx="200" cy="206" r="194" fill="#8E1F1F"/>
+  <circle cx="200" cy="206" r="183" fill="none" stroke="#FFF8EF" stroke-width="3"/>
+  <circle cx="200" cy="206" r="142" fill="url(#cwCream)"/>
+  <circle cx="200" cy="206" r="142" fill="none" stroke="#FFF8EF" stroke-width="3"/>
+
+  <!-- curved text -->
+  <text fill="#FFF8EF" font-family="Georgia, 'Times New Roman', serif" font-weight="700"
+        font-size="33" letter-spacing="2.5">
+    <textPath href="#cwTop" startOffset="50%" text-anchor="middle">
+      CHARMWOOD INTERNATIONAL SCHOOL
+    </textPath>
+  </text>
+  <text fill="#FFF8EF" font-family="Georgia, 'Times New Roman', serif" font-weight="700"
+        font-size="23" letter-spacing="2.2">
+    <textPath href="#cwBottom" startOffset="50%" text-anchor="middle">
+      SATYA SNEH SAHAS SANYAM
+    </textPath>
+  </text>
+  <text x="200" y="392" fill="#FFF8EF" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-weight="700"
+        font-size="24" letter-spacing="3">DEHRADUN</text>
+
+  <!-- rays -->
+  <g stroke="#E0392B" stroke-width="6" stroke-linecap="round">
+    <line x1="200" y1="92"  x2="200" y2="118"/>
+    <line x1="150" y1="104" x2="162" y2="128"/>
+    <line x1="250" y1="104" x2="238" y2="128"/>
+    <line x1="112" y1="140" x2="132" y2="156"/>
+    <line x1="288" y1="140" x2="268" y2="156"/>
+    <line x1="96"  y1="190" x2="120" y2="196"/>
+    <line x1="304" y1="190" x2="280" y2="196"/>
+  </g>
+
+  <!-- flame -->
+  <path d="M200 118 C 170 158, 178 206, 200 240 C 222 206, 230 158, 200 118 Z" fill="url(#cwFlame)"/>
+  <path d="M200 156 C 188 178, 190 206, 200 226 C 210 206, 212 178, 200 156 Z" fill="#FBE2CF" opacity="0.85"/>
+
+  <!-- diya bowl -->
+  <ellipse cx="200" cy="250" rx="64" ry="15" fill="#9E2B2B"/>
+  <path d="M137 250 A 63 15 0 0 0 263 250 C 246 304, 154 304, 137 250 Z" fill="url(#cwBowl)"/>
+  <ellipse cx="200" cy="250" rx="48" ry="9" fill="#6E1212" opacity="0.6"/>
+</svg>

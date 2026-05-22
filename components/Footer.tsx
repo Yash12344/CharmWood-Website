@@ -23,8 +23,16 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
             <a href="#home" className="flex items-center gap-3">
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-burgundy font-display text-xl font-semibold text-ivory-cream">
-                C
+              <span className="grid h-14 w-14 place-items-center rounded-full bg-ivory-cream p-1">
+                <img
+                  src="/images/logo.png"
+                  onError={(e) => {
+                    const el = e.currentTarget as HTMLImageElement;
+                    if (!el.src.endsWith('logo.svg')) el.src = '/images/logo.svg';
+                  }}
+                  alt="Charmwood International School"
+                  className="h-full w-full object-contain"
+                />
               </span>
               <div>
                 <p className="font-display text-xl font-semibold text-ivory-cream">

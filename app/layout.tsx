@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description: 'Nurturing Minds. Shaping Futures.',
     type: 'website',
   },
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: '/images/logo.svg' },
 };
 
 export default function RootLayout({

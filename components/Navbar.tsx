@@ -26,17 +26,15 @@ export function Navbar() {
     >
       <div className="container-x flex h-20 items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
-          <div className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-burgundy to-[#a52828] text-ivory-cream shadow-soft ring-1 ring-burgundy/20">
-            <img
-              src="/images/logo.png"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = 'none';
-              }}
-              alt=""
-              className="h-10 w-10 rounded-xl object-contain"
-            />
-            <span className="absolute font-display text-lg font-semibold">C</span>
-          </div>
+          <img
+            src="/images/logo.png"
+            onError={(e) => {
+              const el = e.currentTarget as HTMLImageElement;
+              if (!el.src.endsWith('logo.svg')) el.src = '/images/logo.svg';
+            }}
+            alt="Charmwood International School"
+            className="h-14 w-14 object-contain drop-shadow-sm"
+          />
           <div className="leading-tight">
             <p className="font-display text-xl font-semibold text-navy">
               Charmwood
@@ -52,7 +50,7 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-navy/80 transition-colors hover:bg-white/70 hover:text-burgundy"
+              className="whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-medium text-navy/80 transition-colors hover:bg-white/70 hover:text-burgundy xl:px-4"
             >
               {l.label}
             </a>
@@ -62,9 +60,9 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href={`tel:${SCHOOL.phones[0].replace(/\s/g, '')}`}
-            className="hidden items-center gap-2 text-sm font-medium text-navy md:inline-flex"
+            className="hidden items-center gap-2 whitespace-nowrap text-sm font-medium text-navy md:inline-flex"
           >
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-gold/20 text-burgundy">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold/20 text-burgundy">
               <Phone className="h-4 w-4" />
             </span>
             {SCHOOL.phones[0]}

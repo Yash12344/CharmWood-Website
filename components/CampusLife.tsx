@@ -24,6 +24,15 @@ export function CampusLife() {
 
         <div className="container-x relative">
           <div className="mx-auto max-w-3xl text-center">
+            <img
+              src="/images/logo.png"
+              onError={(e) => {
+                const el = e.currentTarget as HTMLImageElement;
+                if (!el.src.endsWith('logo.svg')) el.src = '/images/logo.svg';
+              }}
+              alt="Charmwood International School"
+              className="mx-auto mb-6 h-24 w-24 object-contain drop-shadow-md"
+            />
             <span className="ribbon-eyebrow">Campus Life</span>
             <h2 className="section-title mt-7">
               A school day, in{' '}
