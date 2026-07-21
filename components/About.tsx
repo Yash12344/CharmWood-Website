@@ -1,12 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Heart, ShieldCheck, Sprout, Users } from 'lucide-react';
-import { STATS } from '@/lib/data';
+import { STATS, ABOUT_PHOTOS } from '@/lib/data';
 import { Counter } from './Counter';
 import { Leaf, Flower, Heart as HeartDoodle, Star } from './Doodles';
 import { StickerText } from './StickerText';
+import { Photo } from './Photo';
 
 const PILLARS = [
   {
@@ -51,21 +51,19 @@ export function About() {
         {/* Left: image collage */}
         <div className="relative">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[36%_64%_38%_62%/52%_42%_58%_48%] shadow-glow animate-blob">
-            <Image
-              src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1200&q=80"
+            <Photo
+              src={ABOUT_PHOTOS.main.src}
+              fallback={ABOUT_PHOTOS.main.fallback}
               alt="Children learning at Charmwood"
-              fill
-              sizes="(min-width:1024px) 500px, 90vw"
-              className="object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
           <div className="absolute -right-4 -bottom-4 hidden h-44 w-44 overflow-hidden rounded-3xl ring-8 ring-ivory-cream shadow-card md:block">
-            <Image
-              src="https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=600&q=80"
+            <Photo
+              src={ABOUT_PHOTOS.secondary.src}
+              fallback={ABOUT_PHOTOS.secondary.fallback}
               alt="Outdoor play"
-              fill
-              sizes="180px"
-              className="object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
 

@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Calendar, CheckCircle2 } from 'lucide-react';
-import { ADMISSION_STEPS, SCHOOL } from '@/lib/data';
+import { ADMISSION_STEPS, ADMISSIONS_HEADER, SCHOOL } from '@/lib/data';
 import { StickerText } from './StickerText';
 import { Heart, Star, ScribbleArrow } from './Doodles';
+import { Photo } from './Photo';
 
 function MessageCircleIcon({ className = '' }: { className?: string }) {
   return (
@@ -90,12 +90,11 @@ export function Admissions() {
           <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-gradient-warm blur-2xl opacity-70" />
           <div className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-card ring-1 ring-white/70">
             <div className="relative h-40 overflow-hidden rounded-[1.6rem]">
-              <Image
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"
+              <Photo
+                src={ADMISSIONS_HEADER.src}
+                fallback={ADMISSIONS_HEADER.fallback}
                 alt="A warm welcome"
-                fill
-                sizes="(min-width:1024px) 540px, 90vw"
-                className="object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
               <p className="absolute bottom-4 left-5 font-display text-2xl text-ivory-cream">

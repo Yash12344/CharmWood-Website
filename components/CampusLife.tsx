@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { CAMPUS_PHOTOS } from '@/lib/data';
 import { CloudDivider, Heart, Star, Flower } from './Doodles';
 import { StickerText } from './StickerText';
+import { Photo } from './Photo';
 
 // alternating tilt for the scrapbook feel
 const TILTS = [-4, 3, -2, 5, -5, 2, -3, 4, -2, 3];
@@ -70,12 +70,11 @@ export function CampusLife() {
                         : 'aspect-square'
                   }`}
                 >
-                  <Image
+                  <Photo
                     src={p.src}
+                    fallback={p.fallback}
                     alt={p.label}
-                    fill
-                    sizes="(min-width:1024px) 380px, (min-width:640px) 50vw, 90vw"
-                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
                 </div>
                 <figcaption className="cap">{p.label}</figcaption>

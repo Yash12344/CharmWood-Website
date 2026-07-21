@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
 import { StickerText } from './StickerText';
 import { Heart, Star } from './Doodles';
+import { Photo } from './Photo';
 
 export function Testimonials() {
   const [i, setI] = useState(0);
@@ -51,12 +51,11 @@ export function Testimonials() {
                 transition={{ duration: 0.6 }}
                 className="relative h-full w-full overflow-hidden rounded-blob shadow-card animate-blob"
               >
-                <Image
+                <Photo
                   src={t.img}
+                  fallback={t.fallback}
                   alt={t.name}
-                  fill
-                  sizes="(min-width:1024px) 420px, 80vw"
-                  className="object-cover"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </motion.div>
             </AnimatePresence>

@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, PlayCircle } from 'lucide-react';
-import { HERO_SLIDES } from '@/lib/data';
+import { HERO_SLIDES, HERO_FAMILIES, HERO_POLAROIDS } from '@/lib/data';
 import {
   FloatingDoodles,
   Flower,
@@ -16,6 +15,7 @@ import {
   Squiggle,
 } from './Doodles';
 import { StickerText } from './StickerText';
+import { Photo } from './Photo';
 
 export function Hero() {
   const [idx, setIdx] = useState(0);
@@ -130,17 +130,17 @@ export function Hero() {
             className="mt-10 flex items-center gap-4"
           >
             <div className="flex -space-x-3">
-              {[
-                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80',
-                'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=120&q=80',
-                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80',
-              ].map((u, i) => (
+              {HERO_FAMILIES.map((f, i) => (
                 <span
                   key={i}
                   className="relative inline-block h-10 w-10 overflow-hidden rounded-full ring-4 ring-ivory-cream"
                 >
-                  <Image src={u} alt="" fill sizes="40px" className="object-cover" />
+                  <Photo
+                    src={f.src}
+                    fallback={f.fallback}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
                 </span>
               ))}
             </div>
@@ -168,12 +168,11 @@ export function Hero() {
             >
               <div className="polaroid h-full w-full">
                 <div className="relative h-[calc(100%-44px)] w-full overflow-hidden rounded">
-                  <Image
-                    src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=400&q=80"
+                  <Photo
+                    src={HERO_POLAROIDS.art.src}
+                    fallback={HERO_POLAROIDS.art.fallback}
                     alt=""
-                    fill
-                    sizes="160px"
-                    className="object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
                 <span className="cap">art day 🎨</span>
@@ -187,12 +186,11 @@ export function Hero() {
             >
               <div className="polaroid h-full w-full">
                 <div className="relative h-[calc(100%-44px)] w-full overflow-hidden rounded">
-                  <Image
-                    src="https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=400&q=80"
+                  <Photo
+                    src={HERO_POLAROIDS.play.src}
+                    fallback={HERO_POLAROIDS.play.fallback}
                     alt=""
-                    fill
-                    sizes="140px"
-                    className="object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
                 <span className="cap">play time</span>
@@ -213,13 +211,12 @@ export function Hero() {
                   transition={{ duration: 1.1, ease: 'easeOut' }}
                   className="absolute inset-0"
                 >
-                  <Image
+                  <Photo
                     src={slide.src}
+                    fallback={slide.fallback}
                     alt={slide.headline}
-                    fill
-                    priority
-                    sizes="(min-width:1024px) 460px, 90vw"
-                    className="object-cover"
+                    loading="eager"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent" />
                 </motion.div>

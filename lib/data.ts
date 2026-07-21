@@ -21,26 +21,99 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
-/** Real-image candid photographs (Unsplash) used while real school photos are
- * being collected. Replace `src` values with photographs from the school
- * before going live. */
+/* -------------------------------------------------------------
+ * PHOTOS
+ * -------------------------------------------------------------
+ * Every entry points to a local file inside /public/images/...
+ * with a `fallback` remote URL. If the local file doesn't exist,
+ * the site shows the fallback so nothing looks broken. The client
+ * only needs to drop matching filenames into /public/images/ to
+ * replace any photo.  See /public/images/README.txt for a full
+ * folder map.
+ * ------------------------------------------------------------- */
+
 export const HERO_SLIDES = [
   {
-    src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=2000&q=80',
+    src: '/images/01-hero/slide-1.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=2000&q=80',
     headline: 'Where Little Dreams Begin',
     sub: 'A warm, sunlit campus where every child is met with joy and patience.',
   },
   {
-    src: 'https://images.unsplash.com/photo-1587653263995-422546a7a569?auto=format&fit=crop&w=2000&q=80',
+    src: '/images/01-hero/slide-2.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1587653263995-422546a7a569?auto=format&fit=crop&w=2000&q=80',
     headline: 'Learning with Joy, Growing with Confidence',
     sub: 'Activity-based learning rooted in curiosity, art and play.',
   },
   {
-    src: 'https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=2000&q=80',
+    src: '/images/01-hero/slide-3.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=2000&q=80',
     headline: 'Every Child Shines at Charmwood',
     sub: 'Small classes. Caring teachers. Big imaginations.',
   },
 ];
+
+/** Small round avatars beside "450+ happy families" in the hero. */
+export const HERO_FAMILIES = [
+  {
+    src: '/images/01-hero/family-1.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    src: '/images/01-hero/family-2.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    src: '/images/01-hero/family-3.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    src: '/images/01-hero/family-4.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
+  },
+];
+
+/** Two small tilted polaroids behind the hero photo. */
+export const HERO_POLAROIDS = {
+  art: {
+    src: '/images/01-hero/polaroid-art.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80',
+  },
+  play: {
+    src: '/images/01-hero/polaroid-play.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=600&q=80',
+  },
+};
+
+/** About section photos. */
+export const ABOUT_PHOTOS = {
+  main: {
+    src: '/images/02-about/main.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1600&q=80',
+  },
+  secondary: {
+    src: '/images/02-about/secondary.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=800&q=80',
+  },
+};
+
+/** Admissions form header photo. */
+export const ADMISSIONS_HEADER = {
+  src: '/images/05-admissions/form-header.jpg',
+  fallback:
+    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80',
+};
 
 export const FEATURES = [
   {
@@ -94,16 +167,69 @@ export const FEATURES = [
 ];
 
 export const CAMPUS_PHOTOS = [
-  { src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1100&q=80', label: 'Classroom mornings', span: 'tall' },
-  { src: 'https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=1100&q=80', label: 'Outdoor play' },
-  { src: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1100&q=80', label: 'Story circle' },
-  { src: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1100&q=80', label: 'Art & craft', span: 'wide' },
-  { src: 'https://images.unsplash.com/photo-1581726707445-75cbe4efc586?auto=format&fit=crop&w=1100&q=80', label: 'Group projects' },
-  { src: 'https://images.unsplash.com/photo-1535350356005-fd52b3b524fb?auto=format&fit=crop&w=1100&q=80', label: 'Free play' },
-  { src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1100&q=80', label: 'Festivals & celebrations', span: 'tall' },
-  { src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1100&q=80', label: 'Reading hour' },
-  { src: 'https://images.unsplash.com/photo-1607457561901-e6ec3a6d16cf?auto=format&fit=crop&w=1100&q=80', label: 'Annual day' },
-  { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1100&q=80', label: 'Show & tell' },
+  {
+    src: '/images/03-campus-life/01-classroom.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1100&q=80',
+    label: 'Classroom mornings',
+    span: 'tall' as const,
+  },
+  {
+    src: '/images/03-campus-life/02-outdoor.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1564429097439-e4d2e2854a35?auto=format&fit=crop&w=1100&q=80',
+    label: 'Outdoor play',
+  },
+  {
+    src: '/images/03-campus-life/03-story-circle.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1100&q=80',
+    label: 'Story circle',
+  },
+  {
+    src: '/images/03-campus-life/04-art-craft.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1100&q=80',
+    label: 'Art & craft',
+    span: 'wide' as const,
+  },
+  {
+    src: '/images/03-campus-life/05-group-projects.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1581726707445-75cbe4efc586?auto=format&fit=crop&w=1100&q=80',
+    label: 'Group projects',
+  },
+  {
+    src: '/images/03-campus-life/06-free-play.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1535350356005-fd52b3b524fb?auto=format&fit=crop&w=1100&q=80',
+    label: 'Free play',
+  },
+  {
+    src: '/images/03-campus-life/07-festivals.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1100&q=80',
+    label: 'Festivals & celebrations',
+    span: 'tall' as const,
+  },
+  {
+    src: '/images/03-campus-life/08-reading.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1100&q=80',
+    label: 'Reading hour',
+  },
+  {
+    src: '/images/03-campus-life/09-annual-day.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1607457561901-e6ec3a6d16cf?auto=format&fit=crop&w=1100&q=80',
+    label: 'Annual day',
+  },
+  {
+    src: '/images/03-campus-life/10-show-tell.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1100&q=80',
+    label: 'Show & tell',
+  },
 ];
 
 export const PROGRAMS = [
@@ -175,28 +301,36 @@ export const TESTIMONIALS = [
       'We came looking for a good school and stayed because of how our daughter changed. She speaks more clearly, listens better, and actually looks forward to Monday mornings.',
     name: 'Anjali & Rohit Bhatt',
     role: 'Parents of Aanya, Class 3',
-    img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
+    img: '/images/04-testimonials/parent-1.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
   },
   {
     quote:
       'The teachers know each child by name, by mood, by habit. That alone tells you what kind of school this is.',
     name: 'Meera Joshi',
     role: 'Parent of Vihaan, Class 4',
-    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+    img: '/images/04-testimonials/parent-2.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
   },
   {
     quote:
       'Academically serious without being stressful. Our son enjoys learning here — the best foundation we could ask for.',
     name: 'Sanjay & Priya Negi',
     role: 'Parents of Aarav, Class 2',
-    img: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=300&q=80',
+    img: '/images/04-testimonials/parent-3.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80',
   },
   {
     quote:
       'My daughter walked in shy and walked out a performer at the annual day. The patience of these teachers is unmatched.',
     name: 'Kavita Rawat',
     role: 'Parent of Ira, Class 1',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80',
+    img: '/images/04-testimonials/parent-4.jpg',
+    fallback:
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
   },
 ];
 
