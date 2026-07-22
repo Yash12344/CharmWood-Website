@@ -51,12 +51,18 @@ export function Footer() {
               “{SCHOOL.motto}”
             </p>
             <div className="mt-6 flex gap-3">
-              {[Facebook, Instagram, Youtube].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: SCHOOL.socials.facebook, label: 'Facebook' },
+                { Icon: Instagram, href: SCHOOL.socials.instagram, label: 'Instagram' },
+                { Icon: Youtube, href: SCHOOL.socials.youtube, label: 'YouTube' },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="grid h-10 w-10 place-items-center rounded-full bg-white/5 ring-1 ring-white/10 transition hover:bg-burgundy"
-                  aria-label="social"
+                  aria-label={label}
                 >
                   <Icon className="h-4 w-4" />
                 </a>

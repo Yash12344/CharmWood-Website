@@ -49,7 +49,7 @@ export function Admissions() {
             and you’ll know whether we are the right home for your child.
           </p>
 
-          <ol className="relative mt-10 space-y-5 border-l-2 border-dashed border-gold/40 pl-6">
+          <ol className="relative mt-10 ml-4 space-y-6 border-l-2 border-dashed border-gold/40">
             {ADMISSION_STEPS.map((s, i) => (
               <motion.li
                 key={s.title}
@@ -57,9 +57,9 @@ export function Admissions() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="relative"
+                className="relative pl-9"
               >
-                <span className="absolute -left-[33px] grid h-8 w-8 place-items-center rounded-full bg-burgundy text-xs font-bold text-ivory-cream ring-4 ring-ivory-cream">
+                <span className="absolute -left-[17px] top-0 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-burgundy text-xs font-bold text-ivory-cream ring-4 ring-ivory-cream">
                   {i + 1}
                 </span>
                 <h3 className="font-display text-lg font-semibold text-navy">

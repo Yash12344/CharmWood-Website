@@ -1,3 +1,5 @@
+import testimonialsJson from '@/content/testimonials.json';
+
 export const SCHOOL = {
   name: 'Charmwood International School',
   short: 'Charmwood',
@@ -9,6 +11,11 @@ export const SCHOOL = {
   email: 'charmwoodinternational@gmail.com',
   whatsapp: '919897405255',
   hours: 'Mon – Sat · 8:00 AM – 2:30 PM',
+  socials: {
+    facebook: 'https://www.facebook.com/profile.php?id=100064209091843',
+    instagram: 'https://www.instagram.com/charmwoodinternational',
+    youtube: 'https://www.youtube.com/@CharmwoodInternationalSchool',
+  },
 } as const;
 
 export const NAV_LINKS = [
@@ -295,44 +302,32 @@ export const APPROACH = [
   },
 ];
 
-export const TESTIMONIALS = [
-  {
-    quote:
-      'We came looking for a good school and stayed because of how our daughter changed. She speaks more clearly, listens better, and actually looks forward to Monday mornings.',
-    name: 'Anjali & Rohit Bhatt',
-    role: 'Parents of Aanya, Class 3',
-    img: '/images/04-testimonials/parent-1.jpg',
-    fallback:
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    quote:
-      'The teachers know each child by name, by mood, by habit. That alone tells you what kind of school this is.',
-    name: 'Meera Joshi',
-    role: 'Parent of Vihaan, Class 4',
-    img: '/images/04-testimonials/parent-2.jpg',
-    fallback:
-      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    quote:
-      'Academically serious without being stressful. Our son enjoys learning here — the best foundation we could ask for.',
-    name: 'Sanjay & Priya Negi',
-    role: 'Parents of Aarav, Class 2',
-    img: '/images/04-testimonials/parent-3.jpg',
-    fallback:
-      'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    quote:
-      'My daughter walked in shy and walked out a performer at the annual day. The patience of these teachers is unmatched.',
-    name: 'Kavita Rawat',
-    role: 'Parent of Ira, Class 1',
-    img: '/images/04-testimonials/parent-4.jpg',
-    fallback:
-      'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
-  },
+/* -------------------------------------------------------------
+ * TESTIMONIALS
+ * -------------------------------------------------------------
+ * The actual reviews live in /content/testimonials.json so the
+ * school can add/edit them without touching code. Photos go in
+ * /public/images/04-testimonials/ and are referenced by filename
+ * from the JSON. See /content/README.txt for instructions.
+ * ------------------------------------------------------------- */
+
+// Neutral portrait placeholders shown while a parent photo is missing.
+const TESTIMONIAL_FALLBACKS = [
+  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
 ];
+
+export const TESTIMONIALS = testimonialsJson.map((t, i) => ({
+  quote: t.quote,
+  name: t.name,
+  role: t.role,
+  img: t.photo
+    ? `/images/04-testimonials/${t.photo}`
+    : TESTIMONIAL_FALLBACKS[i % TESTIMONIAL_FALLBACKS.length],
+  fallback: TESTIMONIAL_FALLBACKS[i % TESTIMONIAL_FALLBACKS.length],
+}));
 
 export const ADMISSION_STEPS = [
   { title: 'Enquire', desc: 'Send us a short enquiry or simply call. We will respond within a working day.' },

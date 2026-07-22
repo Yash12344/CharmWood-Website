@@ -47,11 +47,17 @@ logo.png
     09-annual-day.jpg       Caption: "Annual day"
     10-show-tell.jpg        Caption: "Show & tell"
 
-04-testimonials/    The "What parents say" section
+04-testimonials/    The "What families say about us" section
     parent-1.jpg        Photo of parent quoted first
     parent-2.jpg        Photo of parent quoted second
     parent-3.jpg        Photo of parent quoted third
     parent-4.jpg        Photo of parent quoted fourth
+
+    NOTE: The review TEXT (quotes, names) is edited separately in
+    the file  content/testimonials.json  — see content/README.txt
+    for easy instructions on adding or changing reviews. You can
+    add more photos here (parent-5.jpg, parent-6.jpg, ...) and
+    reference them from that file.
 
 05-admissions/      The enquiry-form section
     form-header.jpg     The photo across the top of the form card
