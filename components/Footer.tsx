@@ -74,10 +74,10 @@ export function Footer() {
             <h4 className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ivory-cream">
               Explore
             </h4>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="mt-4 space-y-1 text-sm">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
-                  <a className="hover:text-gold-soft" href={l.href}>
+                  <a className="inline-block py-1.5 hover:text-gold-soft" href={l.href}>
                     {l.label}
                   </a>
                 </li>
@@ -89,12 +89,12 @@ export function Footer() {
             <h4 className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-ivory-cream">
               School Life
             </h4>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><a className="hover:text-gold-soft" href="#programs">Curriculum</a></li>
-              <li><a className="hover:text-gold-soft" href="#campus">Campus Gallery</a></li>
-              <li><a className="hover:text-gold-soft" href="#approach">Our Approach</a></li>
-              <li><a className="hover:text-gold-soft" href="#admissions">Admissions</a></li>
-              <li><a className="hover:text-gold-soft" href="#contact">Visit Us</a></li>
+            <ul className="mt-4 space-y-1 text-sm">
+              <li><a className="inline-block py-1.5 hover:text-gold-soft" href="#programs">Curriculum</a></li>
+              <li><a className="inline-block py-1.5 hover:text-gold-soft" href="#campus">Campus Gallery</a></li>
+              <li><a className="inline-block py-1.5 hover:text-gold-soft" href="#approach">Our Approach</a></li>
+              <li><a className="inline-block py-1.5 hover:text-gold-soft" href="#admissions">Admissions</a></li>
+              <li><a className="inline-block py-1.5 hover:text-gold-soft" href="#contact">Visit Us</a></li>
             </ul>
           </div>
 
@@ -111,7 +111,7 @@ export function Footer() {
                 <Phone className="mt-0.5 h-4 w-4 text-gold-soft" />
                 <span>
                   {SCHOOL.phones.map((p) => (
-                    <a key={p} className="block hover:text-gold-soft" href={`tel:${p.replace(/\s/g, '')}`}>
+                    <a key={p} className="block py-1 hover:text-gold-soft" href={`tel:${p.replace(/\s/g, '')}`}>
                       {p}
                     </a>
                   ))}

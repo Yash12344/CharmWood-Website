@@ -127,7 +127,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="mt-10 flex items-center gap-4"
+            className="mt-10 flex items-center gap-4 pr-20 sm:pr-0"
           >
             <div className="flex -space-x-3">
               {HERO_FAMILIES.map((f, i) => (
@@ -242,16 +242,20 @@ export function Hero() {
             </div>
 
             {/* slide dots */}
-            <div className="absolute -bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+            <div className="absolute -bottom-7 left-1/2 z-10 flex -translate-x-1/2">
               {HERO_SLIDES.map((_, i) => (
                 <button
                   key={i}
                   aria-label={`Slide ${i + 1}`}
                   onClick={() => setIdx(i)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    idx === i ? 'w-8 bg-burgundy' : 'w-2.5 bg-navy/20'
-                  }`}
-                />
+                  className="grid h-10 min-w-10 place-items-center px-1"
+                >
+                  <span
+                    className={`block h-2.5 rounded-full transition-all ${
+                      idx === i ? 'w-8 bg-burgundy' : 'w-2.5 bg-navy/20'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 

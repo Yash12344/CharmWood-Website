@@ -66,7 +66,7 @@ export function Programs() {
 
               <a
                 href="#admissions"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-burgundy transition-all hover:gap-3"
+                className="mt-5 inline-flex items-center gap-2 py-2.5 text-sm font-semibold text-burgundy transition-all hover:gap-3"
               >
                 Explore <ArrowRight className="h-4 w-4" />
               </a>

@@ -39,7 +39,7 @@ export function Navbar() {
             <p className="font-display text-xl font-semibold text-navy">
               Charmwood
             </p>
-            <p className="handwritten text-sm leading-none text-pop-purple">
+            <p className="handwritten text-base leading-none text-pop-purple">
               International School
             </p>
           </div>

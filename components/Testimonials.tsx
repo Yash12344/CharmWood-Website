@@ -92,16 +92,20 @@ export function Testimonials() {
 
             {/* controls */}
             <div className="mt-6 flex items-center justify-between">
-              <div className="flex gap-2">
+              <div className="flex">
                 {TESTIMONIALS.map((_, j) => (
                   <button
                     key={j}
                     aria-label={`Go to testimonial ${j + 1}`}
                     onClick={() => setI(j)}
-                    className={`h-2.5 rounded-full transition-all ${
-                      i === j ? 'w-10 bg-burgundy' : 'w-2.5 bg-navy/20'
-                    }`}
-                  />
+                    className="grid h-10 min-w-10 place-items-center px-1"
+                  >
+                    <span
+                      className={`block h-2.5 rounded-full transition-all ${
+                        i === j ? 'w-10 bg-burgundy' : 'w-2.5 bg-navy/20'
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
               <div className="flex gap-2">
